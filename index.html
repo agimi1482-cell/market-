@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marché De Wand — Local Market & Shopping, Laeken</title>
+    
+    <!-- Google Fonts: Warm, artisanal serif and clean humanist sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #FAF8F4;        /* Warm Linen */
+            --color-dark: #1E2922;      /* Earthy Charcoal */
+            --color-primary: #385E48;   /* Deep Olive/Forest Green */
+            --color-accent: #C87A53;    /* Terracotta / Rust */
+            --color-border: #E6E1D6;    /* Soft stone grey */
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.35s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-dark);
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Bar & Notice (Emulating a physical sign-board) */
+        .top-banner {
+            background-color: var(--color-primary);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .brand-title span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--color-accent);
+        }
+
+        .header-meta {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--color-dark);
+            opacity: 0.8;
+            border-left: 2px solid var(--color-accent);
+            padding-left: 1rem;
+        }
+
+        /* Hero / Introduction (Split unevenly for an organic feel) */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            min-height: 70vh;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero-content {
+            padding: 8vw 5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: radial-gradient(circle at 10% 10%, rgba(56, 94, 72, 0.03) 0%, transparent 80%);
+        }
+
+        .hero-tag {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(30, 41, 34, 0.85);
+            max-width: 580px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Card container that simulates physical polaroids or paper brochures */
+        .hero-visual {
+            background-color: #EFECE6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4vw;
+            border-left: 1px solid var(--color-border);
+        }
+
+        .paper-card {
+            background-color: #FFFFFF;
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 10px 30px rgba(30, 41, 34, 0.04);
+            max-width: 400px;
+            transform: rotate(-1.5deg); /* Playful human detail */
+        }
+
+        .paper-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .paper-card p {
+            font-size: 0.95rem;
+            color: rgba(30, 41, 34, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            background-color: #F4F2EC;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        /* Directory Section (Simple, clean, non-corporate grid) */
+        .directory {
+            padding: 8vw 5vw;
+            background-color: #FAF8F4;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: rgba(30, 41, 34, 0.8);
+        }
+
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .vendor-card {
+            background: #FFFFFF;
+            border: 1px solid var(--color-border);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .vendor-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .vendor-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: var(--color-primary);
+        }
+
+        .vendor-card p {
+            font-size: 0.95rem;
+            color: rgba(30, 41, 34, 0.75);
+            margin-bottom: 1.5rem;
+        }
+
+        .vendor-meta {
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-top: 1px dashed var(--color-border);
+            padding-top: 1rem;
+            color: var(--color-dark);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Contact/Registration Form for Market Management */
+        .management-section {
+            background-color: #EFECE6;
+            border-top: 1px solid var(--color-border);
+            padding: 8vw 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5vw;
+            align-items: center;
+        }
+
+        .mgmt-text h3 {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .mgmt-text p {
+            color: rgba(30, 41, 34, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .mgmt-contact-detail {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        /* Form Customizing */
+        .register-form {
+            background: #FFFFFF;
+            padding: 3rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group-full {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            padding: 0.8rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--color-dark);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--color-primary);
+            background-color: #FFFFFF;
+        }
+
+        .btn-rust {
+            background-color: var(--color-accent);
+            color: #FFFFFF;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .btn-rust:hover {
+            background-color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5vw;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            background-color: var(--color-bg);
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: rgba(30, 41, 34, 0.6);
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                padding: 10vw 5vw;
+                border-left: none;
+                border-top: 1px solid var(--color-border);
+            }
+
+            .management-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .register-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Small, physical-style notice board bar -->
+    <div class="top-banner">
+        Every Friday afternoon • Avenue Wannecouter, 1020 Brussels
+    </div>
+
+    <!-- Simple, Clean Header -->
+    <header>
+        <a href="#" class="brand-title">De Wand <span>Market & Shops</span></a>
+        <div class="header-meta">
+            Avenue Wannecouter • Laeken
+        </div>
+    </header>
+
+    <!-- Hero Frame -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">A lively, friendly neighborhood green space</span>
+            <h1>Sustainably-farmed produce, right at your doorstep.</h1>
+            <p>
+                Located in the public garden space at the crossing of Avenue Wannecouter and Rue de Wand, our Friday afternoon market is a vibrant meeting ground for local producers, independent shops, and neighbors.
+            </p>
+        </div>
+        
+        <div class="hero-visual">
+            <!-- Simulated paper flyer graphic inside browser -->
+            <div class="paper-card">
+                <h3>This Friday’s Schedule</h3>
+                <p>Enjoy handpicked local specialties, fresh-baked sourdough, and seasonal organic vegetables under the sun.</p>
+                <div class="badge-list" style="margin-bottom: 1.5rem;">
+                    <span class="badge">Every Friday</span>
+                    <span class="badge">Nov-Mar: 14:00 - 19:00</span>
+                    <span class="badge">Apr-Oct: 14:00 - 20:00</span>
+                </div>
+                <p style="font-size:0.8rem; font-style:italic; margin-bottom:0;">* Located near the Pagodes neighborhood in Laeken.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhood Directory / Merchant Grid -->
+    <section class="directory">
+        <div class="section-header">
+            <h2>The Friday Merchants & Local Favorites</h2>
+            <p>We work with trusted regional vendors to bring organic bread, artisan cheeses, sustainably farmed vegetables, and neighborhood retail options to life on the high street.</p>
+        </div>
+
+        <div class="vendor-grid">
+            <!-- Vendor Card 1 -->
+            <div class="vendor-card">
+                <div>
+                    <span class="vendor-cat">Fresh Produce</span>
+                    <h4>Le Panier de Wannecouter</h4>
+                    <p>Sustainably cultivated organic seasonal fruits, heirloom tomatoes, and crisp green vegetables directly from regional fields.</p>
+                </div>
+                <div class="vendor-meta">
+                    <span>Friday Stall</span>
+                    <span>Organic Certified</span>
+                </div>
+            </div>
+
+            <!-- Vendor Card 2 -->
+            <div class="vendor-card">
+                <div>
+                    <span class="vendor-cat">Artisan Bakery</span>
+                    <h4>La Panification</h4>
+                    <p>Stoneground, naturally fermented sourdough loaves, rustic rye breads, and traditional Belgian pastries baked early Friday morning.</p>
+                </div>
+                <div class="vendor-meta">
+                    <span>Friday Stall</span>
+                    <span>Traditional</span>
+                </div>
+            </div>
+
+            <!-- Vendor Card 3 -->
+            <div class="vendor-card">
+                <div>
+                    <span class="vendor-cat">Delicatessen</span>
+                    <h4>Fromagerie des Pagodes</h4>
+                    <p>An exceptional assortment of raw milk cheeses, farm butter, and locally produced charcuterie sourced across Wallonia and Flanders.</p>
+                </div>
+                <div class="vendor-meta">
+                    <span>Friday Stall</span>
+                    <span>Local Sourced</span>
+                </div>
+            </div>
+
+            <!-- Vendor Card 4 -->
+            <div class="vendor-card">
+                <div>
+                    <span class="vendor-cat">Highstreet Shop</span>
+                    <h4>Local Bookstore & Toys</h4>
+                    <p>Just a short walk down Rue de Wand. A friendly spot for local families searching for children's books, stationery, and creative crafts.</p>
+                </div>
+                <div class="vendor-meta">
+                    <span>Rue de Wand 84</span>
+                    <span>Permanent Shop</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Management & Registrations Section -->
+    <section class="management-section">
+        <div class="mgmt-text">
+            <h3>Are you a local grower or artisan maker?</h3>
+            <p>
+                The De Wand weekly market is managed on behalf of the City of Brussels. We are always welcoming passionate vendors, micro-bakers, and organic growers looking to establish a regular presence in Laeken.
+            </p>
+            <p>
+                For direct regulatory, administrative, and space inquiries: 
+            </p>
+            <a href="mailto:contact@groupegeraud.fr" class="mgmt-contact-detail">contact@groupegeraud.fr</a>
+        </div>
+
+        <div>
+            <!-- A tidy, friendly vendor application concept form -->
+            <form class="register-form" action="mailto:contact@groupegeraud.fr" method="post" enctype="text/plain">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vendor-name">Business / Farm Name</label>
+                        <input type="text" id="vendor-name" name="business_name" required placeholder="E.g., Ferme de Laeken">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-person">Contact Person</label>
+                        <input type="text" id="contact-person" name="contact_person" required placeholder="Your Name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="name@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="fruits-veg">Fruits & Vegetables</option>
+                            <option value="bakery">Bakery / Pastry</option>
+                            <option value="cheese-dairy">Cheese & Dairy</option>
+                            <option value="street-food">Street Food / Foodtruck</option>
+                            <option value="crafts">Local Crafts & Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-full">
+                    <label for="message">Tell us about your products</label>
+                    <textarea id="message" name="message" rows="3" required placeholder="Provide a brief description..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-rust">Submit Vendor Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Minimalist Local Footer -->
+    <footer>
+        <div class="footer-logo">De Wand Market & Shopping</div>
+        <p class="footer-text">Managed on behalf of the local district. Market operator contact: Groupe Géraud.</p>
+        <p class="footer-text" style="margin-top: 0.5rem; opacity: 0.6;">&copy; 2026. Designed for the Avenue Wannecouter Community.</p>
+    </footer>
+
+</body>
+</html>
